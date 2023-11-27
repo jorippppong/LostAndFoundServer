@@ -1,4 +1,4 @@
-package com.lostandfound.domain;
+package com.lostandfound.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,6 +17,6 @@ public class Category {
     @Enumerated(EnumType.STRING)
     private CategoryType categoryType;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category")
     private List<PostCategory> postCategories = new ArrayList<>();
 }

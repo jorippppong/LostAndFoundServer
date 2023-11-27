@@ -1,9 +1,9 @@
-package com.lostandfound.service;
+package com.lostandfound.domain.service;
 
-import com.lostandfound.converter.MemberConverter;
-import com.lostandfound.domain.Member;
-import com.lostandfound.dto.MemberResponseDto;
-import com.lostandfound.repository.MemberRepository;
+import com.lostandfound.domain.converter.MemberConverter;
+import com.lostandfound.domain.entity.Member;
+import com.lostandfound.domain.dto.MemberResponse;
+import com.lostandfound.domain.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +17,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
-    public MemberResponseDto getMember(Long id){
+    public MemberResponse.MemberResponseAllDto getMember(Long id){
         Optional<Member> optionalMember = memberRepository.findById(id);
         if(optionalMember.isPresent()){
             Member member = optionalMember.get();

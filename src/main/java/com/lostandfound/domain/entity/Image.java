@@ -1,4 +1,4 @@
-package com.lostandfound.domain;
+package com.lostandfound.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

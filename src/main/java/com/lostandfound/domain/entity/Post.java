@@ -1,4 +1,4 @@
-package com.lostandfound.domain;
+package com.lostandfound.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -31,7 +31,6 @@ public class Post {
     @OneToMany(mappedBy = "postImage", cascade = CascadeType.ALL)
     private List<Image> images = new ArrayList<>();
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "post")
     private List<PostCategory> postCategories = new ArrayList<>();
-
 }
