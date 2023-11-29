@@ -3,6 +3,7 @@ package com.lostandfound.global.uniformApi;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.lostandfound.global.uniformApi.code.status.ErrorStatus;
 import com.lostandfound.global.uniformApi.code.status.SuccessStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,8 +23,8 @@ public class ApiResponse<T> {
         return new ApiResponse<>(true, SuccessStatus._OK.getCode(), SuccessStatus._OK.getMessage(), result);
     }
 
-    public static <T> ApiResponse<T> onFailure(String code, String message, T result){
-        return new ApiResponse<>(false, code, message, result);
+    public static <T> ApiResponse<T> onFailure(ErrorStatus errorStatus, T result){
+        return new ApiResponse<>(false, errorStatus.getCode(), errorStatus.getMessage(), result);
     }
 
 }

@@ -4,6 +4,8 @@ import com.lostandfound.domain.converter.MemberConverter;
 import com.lostandfound.domain.entity.Member;
 import com.lostandfound.domain.dto.MemberResponse;
 import com.lostandfound.domain.repository.MemberRepository;
+import com.lostandfound.global.exception.CustomException;
+import com.lostandfound.global.uniformApi.code.status.ErrorStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +26,7 @@ public class MemberService {
             return MemberConverter.memberResponseConverter(member);
         }
         else{
-            throw new RuntimeException("id에 해당하는 member가 없음");
+            throw new CustomException(ErrorStatus.MEMBER_NOT_FOUND);
         }
     }
 }
